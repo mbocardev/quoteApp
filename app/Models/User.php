@@ -23,6 +23,11 @@ class User extends Authenticatable
         'password',
     ];
 
+    public function favoriteCitations()
+    {
+        return $this->belongsToMany(Citation::class, 'favorites', 'user_id', 'citation_id');
+    }
+
     /**
      * The attributes that should be hidden for serialization.
      *
