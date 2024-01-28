@@ -13,10 +13,16 @@ return new class extends Migration
     {
         Schema::create('citations', function (Blueprint $table) {
             $table->id();
-            $table->text('text');
+            $table->string('title');
+            $table->text('content');
+            $table->string("image")->nullable();
+            $table->boolean("status")->default(true);
+            $table->date("date_pub")->nullable();
             $table->string('author');
-            $table->unsignedBigInteger('language_id');
-            $table->unsignedBigInteger('category_id');
+            // $table->unsignedBigInteger('language_id');
+            //Clé etrangère categorie
+            $table->unsignedBigInteger("category_id")->nullable();
+            $table->foreign("category_id")->references("id")->on("categories");
             $table->timestamps();
         });
     }

@@ -7,7 +7,15 @@ use Illuminate\Database\Eloquent\Model;
 
 class Citation extends Model
 {
-    protected $fillable = ['text', 'author', 'language_id', 'category_id'];
+    protected $fillable = [
+        "title",
+        "content",
+        "image",
+        "author",
+        "status",
+        "category_id"
+
+    ];
 
     public function category()
     {
